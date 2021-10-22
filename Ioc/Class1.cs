@@ -12,6 +12,11 @@ namespace Ioc
         {
             services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+            services.AddScoped(typeof(ILoanRepository), typeof(LoanRepository));
+            services.AddScoped(typeof(IUserRepository), typeof(UserRepository));
+            services.AddScoped(typeof(IUserService), typeof(UserService));
+
+
         }
     }
 }

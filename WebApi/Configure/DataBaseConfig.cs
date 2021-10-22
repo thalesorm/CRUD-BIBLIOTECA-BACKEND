@@ -12,11 +12,16 @@ namespace WebApi.Configure
 {
     public static class DatabaseConfig
     {
-        private static StreamWriter _logStream = new StreamWriter("C:\\Log\\log.txt", append: true);
 
         public static void AddDatabaseConfig(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<SqlContext>(options => options.UseSqlServer(configuration.GetConnectionString("ConexaoDB"))
+            if (!Directory.Exists("C:\\Log"))
+            {
+                Directory.CreateDirectory("C:\\Log");
+            }
+        StreamWriter _logStream = new StreamWriter("C:\\Log\\log.txt", append: true);
+
+        services.AddDbContext<SqlContext>(options => options.UseSqlServer(configuration.GetConnectionString("ConexaoDB"))
                     .LogTo(_logStream.WriteLine));
         }
     }

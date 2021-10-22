@@ -16,12 +16,16 @@ namespace Data.Context
 
         }
         public DbSet<Book> Books { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Loan> Loans { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Book>(new BookMap().Configure);
+            modelBuilder.Entity<User>(new UserMap().Configure);
+            modelBuilder.Entity<Loan>(new LoanMap().Configure);
 
         }
     }

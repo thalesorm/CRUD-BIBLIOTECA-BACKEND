@@ -32,11 +32,6 @@ namespace Data.Mapping
                 .HasColumnType("varchar(250)")
                 .IsRequired();
 
-
         }
-
-
-
-
     }
 }

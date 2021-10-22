@@ -15,5 +15,6 @@ namespace Domain.Models
         public string Author { get; set; }
 
         public string Genre { get; set; }
+
     }
 }
